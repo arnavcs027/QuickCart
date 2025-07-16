@@ -20,11 +20,20 @@ export const syncUserCreation = inngest.createFunction(
             imageUrl:image_url
         }
         await connectDB()
-        await User.findOneAndUpdate(
-            { _id: userData._id },
-            userData,
-            { upsert: true, new: true }
-        )
+        // First, check if a user with that email already exists
+        const existingUser = await User.findOne({ email: userData.email });
+
+        if (existingUser) {
+            // If user exists with that email, update that entry
+            await User.findByIdAndUpdate(existingUser._id, userData);
+        } else {
+            // Else, safely create new entry with upsert
+            await User.findOneAndUpdate(
+                { _id: userData._id },
+                userData,
+                { upsert: true, new: true }
+            );
+        }
     }
 )
 
