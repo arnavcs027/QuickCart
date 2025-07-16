@@ -11,4 +11,7 @@ export const { GET, POST, PUT } = serve({
     syncUserUpdation,
     syncUserDeletion
   ],
+  env: {
+    MONGODB_URI: process.env.MONGODB_URI, 
+  },
 });

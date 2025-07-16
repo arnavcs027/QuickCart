@@ -17,7 +17,10 @@ async function connectDB() {
             bufferCommands:false
         }
 
-        cached.promise = mongoose.connect('${process.env.MONGODB_URI}/quickcart',opts).then(mongoose => {
+        console.log("🚨 Loaded MongoDB URI:", process.env.MONGODB_URI);
+
+        cached.promise = mongoose.connect(process.env.MONGODB_URI, opts).then((mongoose) => {
+            console.log(" ✅ Connected to MongoDB");
             return mongoose
         })
     }
