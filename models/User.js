@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    _id:{ type : String, required:true, unique: true },
+    clerkId:{ type : String, required:true, unique: true },
     name: { type : String, required:true },
     email: { type : String, required:true, unique:true },
     imageUrl : { type : String, required:true },
-    cartItems: { type:Object, default: {} }
+    cartItems: { type: Map, of: Number, default: {} }
 }, { minimize: false})
 
 const User = mongoose.models.user || mongoose.model('user', userSchema)

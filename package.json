@@ -11,12 +11,13 @@
   "dependencies": {
     "@clerk/nextjs": "^6.25.0",
     "axios": "^1.10.0",
+    "cloudinary": "^2.7.0",
     "inngest": "^3.40.1",
     "mongoose": "^8.16.3",
     "next": "^15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hot-toast": "^2.5.1"
+    "react-hot-toast": "^2.5.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
