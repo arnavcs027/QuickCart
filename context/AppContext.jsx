@@ -44,7 +44,7 @@ export const AppContextProvider = (props) => {
     const fetchUserData = async () => {
         try {
             
-        if (user.publicMetadata.role === 'seller') {
+        if (user?.publicMetadata?.role === 'seller') {
             setIsSeller(true)
         }
         setUserData(userDummyData)
@@ -61,7 +61,7 @@ export const AppContextProvider = (props) => {
         }
 
         } catch (error) {
-            toast.error(data.message)
+            toast.error(error.response?.data?.message || error.message || "Something went wrong")
         }
     }
 

@@ -9,8 +9,8 @@ const Footer = () => {
         <div className="w-4/5">
           <Image className="w-28 md:w-32" src={assets.logo} alt="logo" />
           <p className="mt-6 text-sm">
-            <h2>Welcome to QuickCart – Your One-Stop Shop for Electronics!</h2>
-              <p>Discover the latest gadgets, smartphones, laptops, and more – all at unbeatable prices. With a smooth shopping experience, fast checkout, and secure payments, QuickCart makes buying electronics easy, quick, and reliable. Get your tech delivered fast, hassle-free!</p>
+            Welcome to QuickCart – Your One-Stop Shop for Electronics!
+              Discover the latest gadgets, smartphones, laptops, and more – all at unbeatable prices. With a smooth shopping experience, fast checkout, and secure payments, QuickCart makes buying electronics easy, quick, and reliable. Get your tech delivered fast, hassle-free!
           </p>
         </div>
 

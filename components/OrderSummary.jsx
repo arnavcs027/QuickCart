@@ -160,7 +160,7 @@ const OrderSummary = () => {
           </div>
           <div className="flex justify-between text-lg md:text-xl font-medium border-t pt-3">
             <p>Total</p>
-            <p>{currency}{getCartAmount() + Math.floor(getCartAmount() * 0.02)}</p>
+            <p>{currency}{parseFloat(getCartAmount() + Math.floor(getCartAmount() * 0.02)).toFixed(2)}</p>
           </div>
         </div>
       </div>
