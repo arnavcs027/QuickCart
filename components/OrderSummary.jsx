@@ -1,6 +1,7 @@
-import { addressDummyData } from "@/assets/assets";
+import { addressDummyData, assets } from "@/assets/assets";
 import { useAppContext } from "@/context/AppContext";
 import axios from "axios";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -9,6 +10,7 @@ const OrderSummary = () => {
   const { currency, router, getCartCount, getCartAmount, getToken, user, cartItems, setCartItems } = useAppContext()
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isPlaceOrderClicked, setIsPlaceOrderClicked] = useState(false);
 
   const [userAddresses, setUserAddresses] = useState([]);
 
@@ -199,9 +201,26 @@ const OrderSummary = () => {
         </div>
       </div>
 
-      <button onClick={createOrderStripe} className="w-full bg-orange-600 text-white py-3 mt-5 hover:bg-orange-700">
-        Place Order
-      </button>
+      {
+        !isPlaceOrderClicked ? (
+          <button onClick={()=> setIsPlaceOrderClicked(true)} className="w-full bg-orange-600 text-white py-2 mt-5 hover:bg-orange-700">
+            Place Order
+          </button>
+        ) : (
+          <div className="flex gap-2">
+            <button onClick={createOrder} className="w-full bg-orange-600 text-white py-3 mt-5 hover:bg-orange-700">
+              Cash On Delivery
+            </button>
+            <button onClick={createOrderStripe} className="w-full flex justify-center items-center border border-indigo-500 bg-white hover:bg-gray-100 py-2 mt-5 ">
+              {assets?.stripe_logo ? (
+              <Image className="w-12" src={assets.stripe_logo} alt="Stripe Logo" />
+              ) : (
+                <span className="text-xl text-indigo-500">Stripe</span>
+              )}
+            </button>
+          </div>
+        )
+      }
     </div>
   );
 };
